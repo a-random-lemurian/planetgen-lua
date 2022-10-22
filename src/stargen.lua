@@ -2,6 +2,7 @@ local math = require("math")
 local json = require("json")
 local data = require("seeddata")
 local util = require("util")
+local prettyprint = require("prettyprint")
 
 local p = {}
 
@@ -60,7 +61,7 @@ function p.main(args)
     if args.json then
         print(json.encode(system))
     else
-        
+        prettyprint.printSystem(system)
     end
 end
 
