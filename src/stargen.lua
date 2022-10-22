@@ -8,7 +8,17 @@ local p = {}
 function p.genSystemName()
     local name = ""
     local possibleShards = data.nameShards
-    local shardsCount = math.random(2, 5)
+
+    -- TODO: minimize code duplication with new function
+    local minShards = 2;
+    local maxShards = 5;
+    if util.isEmpty(util.state.args.max_name_shards) == false then
+        maxShards = util.state.args.max_name_shards
+    end
+    if util.isEmpty(util.state.args.min_name_shards) == false then
+        maxShards = util.state.args.min_name_shards
+    end
+    local shardsCount = math.random(minShards, maxShards)
 
     for i=1,shardsCount do
         name = name .. possibleShards[math.random(#possibleShards)]
