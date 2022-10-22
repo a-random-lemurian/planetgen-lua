@@ -2,7 +2,6 @@ local math = require("math")
 local json = require("json")
 local data = require("seeddata")
 local util = require("util")
-local prettyprint = require("prettyprint")
 
 local p = {}
 
@@ -38,7 +37,7 @@ function p.genPlanet()
     return planet;
 end
 
-function p.main(args)
+function p.genStarSystem()
     local system = {
         metadata = {
             generated = os.date("%Y-%m-%d %H:%M:%S",os.time()),
@@ -58,11 +57,7 @@ function p.main(args)
         system.planets[i].name = system.name .. " " .. i_str
     end
 
-    if args.json then
-        print(json.encode(system))
-    else
-        prettyprint.printSystem(system)
-    end
+    return system
 end
 
 return p
