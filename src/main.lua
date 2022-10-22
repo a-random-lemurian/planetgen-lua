@@ -24,7 +24,8 @@ local function main()
     )
 
     parser:group("Formatting options",
-        parser:flag("--json", "Output in JSON format")
+        parser:flag("--json", "Output in JSON format"),
+        parser:flag("--pretty", "Output as a beautifully formatted report")
     )
 
     local args = parser:parse()
@@ -37,6 +38,8 @@ local function main()
 
     if args.json then
         print(json.encode(system))
+    elseif args.pretty then
+        prettyprint.printSystem(system)
     else
         prettyprint.printSystem(system)
     end
