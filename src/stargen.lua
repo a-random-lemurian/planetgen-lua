@@ -45,6 +45,15 @@ function p.genPlanet()
     return planet;
 end
 
+function p.calculateChz(star)
+    local chz = {}
+
+    chz.begin = star.temperature * 8000
+    chz.finish = chz.begin * 1.6
+
+    return chz
+end
+
 function p.genStarSystem()
     local system = {
         metadata = {
@@ -53,7 +62,7 @@ function p.genStarSystem()
         },
         name = p.genSystemName(),
         star = p.genStar(),
-        planets = {}
+        planets = {},
     }
 
     local planetCount = math.random(2,9)
@@ -64,6 +73,8 @@ function p.genStarSystem()
         local i_str = tostring(i)
         system.planets[i].name = system.name .. " " .. i_str
     end
+
+    system.chz = p.calculateChz(system.star)
 
     return system
 end
