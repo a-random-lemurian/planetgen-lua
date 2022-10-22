@@ -10,8 +10,9 @@ function p.genSystemName()
     local possibleShards = data.nameShards
 
     -- TODO: minimize code duplication with new function
-    local minShards = util.overrideArgument("min_name_shards", 2);
-    local maxShards = util.overrideArgument("max_name_shards", 5);
+    local minShards = util.overrideArgument("min_name_shards", data.defaults.minNameShards);
+    local maxShards = util.overrideArgument("max_name_shards", data.defaults.maxNameShards);
+
     local shardsCount = math.random(minShards, maxShards)
 
     for i=1,shardsCount do
