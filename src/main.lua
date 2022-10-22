@@ -23,11 +23,7 @@ local function main()
 
     util.state.args = args
 
-    if util.isEmpty(args.seed) == false then
-        util.seedRandom(args.seed)
-    else
-        util.seedRandom(os.clock()*1000000000)
-    end
+    util.seedRandom(util.overrideArgument("seed", os.clock()*1000000000))
 
     local system = stargen.genStarSystem();
 

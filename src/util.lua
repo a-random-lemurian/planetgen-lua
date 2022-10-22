@@ -35,4 +35,14 @@ function p.weightedRandomList(pool)
     end
 end
 
+-- Override an argument. Checks a given name against the arguments list. If
+-- the target argument is not found, the default value is returned instead.
+function p.overrideArgument(argument, default)
+    if p.isEmpty(p.state.args[argument]) == false then
+        return p.state.args[argument]
+    else
+        return default
+    end
+end
+
 return p;
