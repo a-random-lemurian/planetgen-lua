@@ -1,5 +1,7 @@
 local data = {
     planets = {
+        -- TODO: If planet being generated is in the circumstellar habitable
+        -- zone, increase the odds in favor of terran and ocean.
         possibleTypes = {
             { 46, { name = "barren" } },
             { 13, { name = "frozen" } },
