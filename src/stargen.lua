@@ -30,9 +30,13 @@ end
 function p.genStar()
     local types = data.stars.possibleTypes
 
+    local starType = util.weightedRandomList(types)
+    
     local star = {
-        type = util.weightedRandomList(types).name
+        type = starType.name,
+        temperature = math.random(starType.minTemp, starType.maxTemp)
     }
+
     return star;
 end
 

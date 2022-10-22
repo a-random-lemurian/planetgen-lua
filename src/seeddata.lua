@@ -13,13 +13,34 @@ local data = {
     },
     stars = {
         possibleTypes = {
-            { 70, { name = "red" } },
-            { 10, { name = "yellow" } },
-            { 8, { name = "orange" } },
-            { 5, { name = "blue" } },
-            { 4, { name = "white" } },
-            { 2, { name = "blackhole" } },
-            { 1, { name = "neutron" } }
+            { 70, {  name = "red",
+                    minTemp = 2400,
+                    maxTemp = 3700 }
+            },
+            { 10, { name = "yellow",
+                    minTemp = 3700,
+                    maxTemp = 5200 }
+            },
+            { 8, {  name = "orange",
+                    minTemp = 4200,
+                    maxTemp = 7800 }
+            },
+            { 5, {  name = "blue",
+                    minTemp = 10000,
+                    maxTemp = 60000 }
+            },
+            { 4, {  name = "white",
+                    minTemp = 6000,
+                    maxTemp = 10000 }
+            },
+            { 2, {  name = "blackhole",
+                    minTemp = 400,
+                    maxTemp = 900 }
+            },
+            { 1, {  name = "neutron",
+                    minTemp = 800,
+                    maxTemp = 2000 }
+            }
         },
     },
     nameShards = {
