@@ -68,6 +68,8 @@ function p.genStarSystem()
         stats = {}
     }
 
+    system.chz = p.calculateChz(system.star)
+
     local planetCount = math.random(2,9)
 
     for i=1,planetCount do
