@@ -4,7 +4,11 @@ local data = {
             "terran",
             "barren",
             "lava",
-            "venusian"
+            "venusian",
+            "toxic",
+            "ocean",
+            "desert",
+            "frozen"
         }
     },
     stars = {
