@@ -36,8 +36,8 @@ function p.genStar()
     return star;
 end
 
-function p.genPlanet()
-    local types = data.planets.possibleTypes
+function p.genPlanet(system, dist)
+    local types = p.getPlanetTypes(system.chz, dist)
 
     local planet = {
         type = util.weightedRandomList(types).name,
@@ -45,6 +45,16 @@ function p.genPlanet()
     }
 
     return planet;
+end
+
+function p.getPlanetTypes(chz, distance)
+    if distance > chz.begin then
+        if distance < chz.finish then
+            return data.planets.possibleTypesInsideChz
+        end
+    end
+
+    return data.planets.possibleTypes
 end
 
 function p.calculateChz(star)
