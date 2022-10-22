@@ -11,6 +11,16 @@ local data = {
             { 4, { name = "terran" } },
             { 3, { name = "desert" } },
             { 2, { name = "venusian" } }
+        },
+        possibleTypesInsideChz = {
+            { 28, { name = "terran" } },
+            { 19, { name = "ocean" } },
+            { 14, { name = "desert" } },
+            { 10, { name = "barren" } },
+            { 13, { name = "frozen" } },
+            { 13, { name = "lava" } },
+            { 12, { name = "toxic" } },
+            { 1, { name = "venusian" } }
         }
     },
     stars = {
