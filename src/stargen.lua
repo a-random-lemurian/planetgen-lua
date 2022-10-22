@@ -2,6 +2,7 @@ local math = require("math")
 local json = require("json")
 local data = require("seeddata")
 local util = require("util")
+local stats = require("stats")
 
 local p = {}
 
@@ -54,7 +55,8 @@ function p.genStarSystem()
         },
         name = p.genSystemName(),
         star = p.genStar(),
-        planets = {}
+        planets = {},
+        stats = {}
     }
 
     local planetCount = math.random(2,9)
@@ -65,6 +67,8 @@ function p.genStarSystem()
         local i_str = tostring(i)
         system.planets[i].name = system.name .. " " .. i_str
     end
+
+    system.stats.totalPopulation = stats.totalPopulation(system.planets)
 
     return system
 end
