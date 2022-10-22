@@ -91,6 +91,7 @@ function p.genStarSystem()
         local i_str = tostring(i)
         system.planets[i].name = system.name .. " " .. i_str
         system.planets[i].distance = distance
+        system.planets[i].habitable = p.isHabitable(system.chz, distance)
     
         distance = distance + math.random(7700000, 9650000)
     end
