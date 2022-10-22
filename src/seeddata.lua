@@ -49,6 +49,10 @@ local data = {
         "sh", "ca", "ma", "lop", "nar", "le", "mel", "ral", "dan",
         "kam", "kai", "ai", "ei", "ro", "de", "ze", "ya", "ik", "vot",
         "sen"
+    },
+    defaults = {
+        minNameShards = 2,
+        maxNameShards = 5
     }
 }
 

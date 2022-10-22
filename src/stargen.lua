@@ -2,6 +2,7 @@ local math = require("math")
 local json = require("json")
 local data = require("seeddata")
 local util = require("util")
+local stats = require("stats")
 
 local p = {}
 
@@ -10,8 +11,9 @@ function p.genSystemName()
     local possibleShards = data.nameShards
 
     -- TODO: minimize code duplication with new function
-    local minShards = util.overrideArgument("min_name_shards", 2);
-    local maxShards = util.overrideArgument("max_name_shards", 5);
+    local minShards = util.overrideArgument("min_name_shards", data.defaults.minNameShards);
+    local maxShards = util.overrideArgument("max_name_shards", data.defaults.maxNameShards);
+
     local shardsCount = math.random(minShards, maxShards)
 
     for i=1,shardsCount do
@@ -63,6 +65,7 @@ function p.genStarSystem()
         name = p.genSystemName(),
         star = p.genStar(),
         planets = {},
+        stats = {}
     }
 
     local planetCount = math.random(2,9)
@@ -75,6 +78,8 @@ function p.genStarSystem()
     end
 
     system.chz = p.calculateChz(system.star)
+
+
 
     return system
 end

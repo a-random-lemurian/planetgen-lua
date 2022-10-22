@@ -24,6 +24,10 @@ function p.printSystem(system)
         system.metadata.randseed,
         system.metadata.generated)
     )
+    print(string.format(
+        "population total: %d",
+        system.stats.totalPopulation)
+    )
 end
 
 return p
