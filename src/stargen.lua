@@ -21,7 +21,7 @@ function p.genStar()
     local types = data.stars.possibleTypes
 
     local star = {
-        type = types[math.random(#types)]
+        type = util.weightedRandomList(types)
     }
     return star;
 end
@@ -30,7 +30,7 @@ function p.genPlanet()
     local types = data.planets.possibleTypes
 
     local planet = {
-        type = types[math.random(#types)],
+        type = util.weightedRandomList(types),
         population = math.random(1,800000)*100
     }
 

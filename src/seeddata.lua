@@ -1,25 +1,25 @@
 local data = {
     planets = {
         possibleTypes = {
-            "terran",
-            "barren",
-            "lava",
-            "venusian",
-            "toxic",
-            "ocean",
-            "desert",
-            "frozen"
+            { 46, "barren" },
+            { 13, "frozen" },
+            { 12, "lava" },
+            { 11, "toxic" },
+            { 9, "ocean" },
+            { 4, "terran" },
+            { 3, "desert" },
+            { 2, "venusian" }
         }
     },
     stars = {
         possibleTypes = {
-            "red",
-            "blue",
-            "yellow",
-            "orange",
-            "white",
-            "blackhole",
-            "neutron"
+            { 70, "red"},
+            { 10, "yellow"},
+            { 8, "orange"},
+            { 5, "blue"},
+            { 4, "white"},
+            { 2, "blackhole"},
+            { 1, "neutron"}
         },
     },
     nameShards = {

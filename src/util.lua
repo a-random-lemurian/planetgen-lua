@@ -18,4 +18,21 @@ function p.seedRandom(seed)
     end
 end
 
+function p.weightedRandomList(pool)
+    local poolSize = 0
+
+    for k,v in pairs(pool) do
+        poolSize = poolSize + v[1]
+    end
+
+    local selection = math.random(1,poolSize)
+
+    for k,v in pairs(pool) do
+        selection = selection - v[1]
+        if (selection <= 0) then
+            return v[2]
+        end
+    end
+end
+
 return p;
