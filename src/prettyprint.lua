@@ -24,6 +24,13 @@ function p.printSystem(system)
         system.metadata.randseed,
         system.metadata.generated)
     )
+
+    print(string.format(
+        "chz: %d - %d",
+        system.chz.begin,
+        system.chz.finish)
+    )
+
     -- print(string.format(
     --     "population total: %d",
     --     system.stats.totalPopulation)
