@@ -11,7 +11,7 @@ function p.printSystem(system)
     print(hr)
 
     for i, planet in ipairs(system.planets) do
-        print(string.format("%s (%s type), population %d",
+        print(string.format("%-30s %-18s %d",
             planet.name, util.titleCase(planet.type),
             planet.population
         ))
