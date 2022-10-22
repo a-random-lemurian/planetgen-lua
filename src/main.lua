@@ -9,15 +9,23 @@ local function main()
 
     parser:help_max_width(80)
 
-    parser:option("--seed", "Use a specific seed")
-    parser:option("--max-name-shards --maxnsh",
-                  "Set the maximum number of name shards. Default is 5."
-                  .."This program generates planet and star system names by "
-                  .."stringing together a random arrangement of 'name "
-                  .."fragments', like 'ca', 'mel', 'ral', and 'dan'.")
-    parser:option("--min-name-shards --minnsh",
-                  "Set the minimum number of name shards. Default is 2.")
-    parser:flag("--json", "Output in JSON format")
+    parser:group("Initial generation parameters",
+        parser:option("--seed", "Use a specific seed")
+    )
+
+    parser:group("Configuring limits",
+        parser:option("--max-name-shards --maxnsh",
+                      "Set the maximum number of name shards. Default is 5."
+                      .."This program generates planet and star system names "
+                      .."by stringing together a random arrangement of 'name "
+                      .."fragments', like 'ca', 'mel', 'ral', and 'dan'."),
+        parser:option("--min-name-shards --minnsh",
+                      "Set the minimum number of name shards. Default is 2.")
+    )
+
+    parser:group("Formatting options",
+        parser:flag("--json", "Output in JSON format")
+    )
 
     local args = parser:parse()
 
