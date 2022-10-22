@@ -47,11 +47,13 @@ function p.genPlanet(system, dist)
     return planet;
 end
 
+function p.isHabitable(chz, distance)
+    return distance >= chz.start and distance <= chz.finish
+end
+
 function p.getPlanetTypes(chz, distance)
-    if distance > chz.begin then
-        if distance < chz.finish then
-            return data.planets.possibleTypesInsideChz
-        end
+    if p.isHabitable(chz, distance) then
+        return data.planets.possibleTypesInsideChz
     end
 
     return data.planets.possibleTypes
