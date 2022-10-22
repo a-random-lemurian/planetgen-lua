@@ -71,17 +71,17 @@ function p.genStarSystem()
     system.chz = p.calculateChz(system.star)
 
     local planetCount = math.random(2,9)
+    local distance = math.random(700000, 1340000)
 
     for i=1,planetCount do
-        system.planets[i] = p.genPlanet()
+        system.planets[i] = p.genPlanet(system, distance)
 
         local i_str = tostring(i)
         system.planets[i].name = system.name .. " " .. i_str
+        system.planets[i].distance = distance
+    
+        distance = distance + math.random(7700000, 9650000)
     end
-
-    system.chz = p.calculateChz(system.star)
-
-
 
     return system
 end
