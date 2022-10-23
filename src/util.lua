@@ -37,6 +37,10 @@ function p.weightedRandomList(pool)
     end
 end
 
+function p.randomItemFromList(list)
+    return list[math.random(#list)]
+end
+
 function p.randomFloat(a, b)
     return a + math.random() * (b-a)
 end
