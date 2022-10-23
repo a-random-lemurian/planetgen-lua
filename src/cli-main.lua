@@ -81,7 +81,7 @@ local function main()
     -- by util.overrideArgument(), therefore causing
     -- errors from trying to index a nil value.
 
-    local stargen = require("stargen")
+    local stargen = require("system")
     local system = stargen.genStarSystem();
 
     if args.json then
