@@ -24,10 +24,6 @@ function p.ensureNumber(args, item)
         return true
     end
 
-    if type(args[item]) == expectedType then
-        return true
-    end
-
     io.stderr:write("error in --"..item..": expected a number and "
                   .."got argument of type "..type(item).." instead\n")
 end
