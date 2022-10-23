@@ -1,7 +1,7 @@
-local argparse = require("argparse")
+local argparse = require("cli-argparse")
+local validate = require("cli-validate")
 local util = require("util")
 local json = require("json")
-local validate = require("validate")
 
 
 local function printSystem(system)
