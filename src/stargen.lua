@@ -63,7 +63,7 @@ function p.calculateChz(star)
     local chz = {}
 
     chz.begin = star.temperature * 3000
-    chz.finish = chz.begin * math.random(1.6, 3.7)
+    chz.finish = chz.begin * util.randomFloat(1.6, 3.7)
 
     return chz
 end
