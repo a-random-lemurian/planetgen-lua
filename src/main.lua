@@ -35,8 +35,7 @@ local function main()
     local args = parser:parse()
     validate.validateArguments(args)
 
-    util.state.args = args
-
+    util.setArguments(args)
     util.seedRandom(util.overrideArgument("seed", os.clock()*1000000000))
 
     -- We don't require stargen at the top of the file,

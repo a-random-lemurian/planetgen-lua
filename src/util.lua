@@ -83,4 +83,8 @@ function p.between(i, min, max)
     return i >= min and i <= max
 end
 
+function p.setArguments(args)
+    p.state.args = args
+end
+
 return p;
