@@ -59,7 +59,9 @@ function p.genStarSystem()
         stats = {}
     }
 
-    local planetCount = math.random(2,9)
+    local minPlanetCount = util.overrideArgument("minp", data.defaults.minPlanets)
+    local maxPlanetCount = util.overrideArgument("maxp", data.defaults.maxPlanets)
+    local planetCount = math.random(minPlanetCount, maxPlanetCount)
 
     for i=1,planetCount do
         system.planets[i] = p.genPlanet()

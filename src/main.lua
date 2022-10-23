@@ -20,7 +20,9 @@ local function main()
                       .."by stringing together a random arrangement of 'name "
                       .."fragments', like 'ca', 'mel', 'ral', and 'dan'."),
         parser:option("--min-name-shards --minnsh",
-                      "Set the minimum number of name shards. Default is 2.")
+                      "Set the minimum number of name shards. Default is 2."),
+        parser:option("--minp","Minimum planets"),
+        parser:option("--maxp","Maximum planets")
     )
 
     parser:group("Formatting options",
