@@ -41,8 +41,18 @@ function p.randomItemFromList(list)
     return list[math.random(#list)]
 end
 
-function p.randomItemFromHashTable(hashtable)
-    return hashtable[math.random(p.countItemsInHashTable(hashtable))]
+function p.randomItemFromHashTable(table)
+    local n = 0
+    local choice = nil
+
+    for k,v in pairs(table) do
+        n = n + 1
+        if math.random() < (1/n) then
+            choice = v
+        end
+    end
+
+    return choice
 end
 
 function p.countItemsInHashTable(hashtable)
