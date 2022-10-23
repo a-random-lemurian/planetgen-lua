@@ -36,7 +36,7 @@ function p.weightedRandomList(pool)
 end
 
 function p.randomFloat(a, b)
-    return math.random() + math.random(a, b)
+    return a + math.random() * (b-a)
 end
 
 -- Override an argument. Checks a given name against the arguments list. If
