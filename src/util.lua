@@ -1,5 +1,7 @@
 local p = {}
 
+-- util.state is a table used to store global variables, shared across
+-- the entirety of the program.
 p.state = {}
 
 function p.isEmpty(i)

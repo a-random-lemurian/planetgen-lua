@@ -2,6 +2,8 @@ local util = require("util")
 
 local p = {}
 
+-- `hr` is a long line meant as a separator. Its name is derived from the
+-- element <hr> in HTML.
 local hr = '---------------------------------------------------------------'
 
 function p.printSystem(system)
@@ -19,6 +21,8 @@ function p.printSystem(system)
 
     print(hr)
 
+    -- To allow reproducibility, we print the random
+    -- seed used to generate the star system.
     print(string.format(
         "seed: %s, generated %s",
         system.metadata.randseed,

@@ -1,8 +1,27 @@
+-- validate.lua
+--
+-- These functions help validate the command line arguments
+-- sent into planetgen. Validation functions should return true
+-- when given valid input and false for anything else.
+--
+-- Validation functions must not exit when detecting invalid
+-- input. It should instead run any error handling code, write
+-- to stderr with io:stderr:write, set hadError to true, and
+-- return false.
+--
+-- This allows all errors in the command line arguments to be
+-- shown to the user all at once instead of one by one which
+-- may frustrate the user.
+--
+
 local util = require "util"
 local p = {}
 
 local hadError = false
 
+-- For obvious reasons, a minimum number cannot be higher than a
+-- maximum number. args is a table containing the args from
+-- parser:parse(). min and max are self-explanatory.
 function p.validateMinMax(args, min, max)
     if util.isEmpty(args[min]) or util.isEmpty(args[max]) then
         return true
@@ -19,6 +38,8 @@ function p.validateMinMax(args, min, max)
     return true
 end
 
+-- Some arguments must be a number. This checks if the argument
+-- type is indeed, a number.
 function p.ensureNumber(args, item)
     if util.isEmpty(args[item]) then
         return true
