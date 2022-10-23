@@ -1,5 +1,4 @@
 local argparse = require("argparse")
-local stargen = require("stargen")
 local util = require("util")
 local json = require("json")
 local prettyprint = require("prettyprint")
@@ -40,6 +39,16 @@ local function main()
 
     util.seedRandom(util.overrideArgument("seed", os.clock()*1000000000))
 
+    -- We don't require stargen at the top of the file,
+    -- as stargen calls the namegen module.
+    --
+    -- The namegen module calls util.overrideArgument(),
+    -- which would be called before the parsed arguments
+    -- are copied to util.state.args, which is accessed
+    -- by util.overrideArgument(), therefore causing
+    -- errors from trying to index a nil value.
+
+    local stargen = require("stargen")
     local system = stargen.genStarSystem();
 
     if args.json then
