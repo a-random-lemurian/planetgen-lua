@@ -5,7 +5,7 @@ local p = {}
 local minShards = util.overrideArgument("min_name_shards", data.defaults.minNameShards);
 local maxShards = util.overrideArgument("max_name_shards", data.defaults.maxNameShards);
 
-local katakana = {
+p.katakana = {
     startFragments = {
         "kyo", "gyo", "shu", "sho", "chu", "cho", "hyu", "myo",
         "ryu", "chi", "tsu", "shi", "ka", "ki", "ku", "ke",
@@ -48,13 +48,13 @@ function p.nameProviders.katakana()
     local name = ""
     local middleFragmentCount = math.random(0, 2)
     
-    name = name .. util.randomItemFromList(katakana.startFragments)
+    name = name .. util.randomItemFromList(p.katakana.startFragments)
     
     for i=0,middleFragmentCount do
-        name = name .. util.randomItemFromList(katakana.middleFragments)
+        name = name .. util.randomItemFromList(p.katakana.middleFragments)
     end
 
-    name = name .. util.randomItemFromList(katakana.endFragments)
+    name = name .. util.randomItemFromList(p.katakana.endFragments)
 
     return name
 end
