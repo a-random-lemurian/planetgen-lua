@@ -1,5 +1,17 @@
+-- seeddata.lua
+--
+-- Contains data needed for planetgen-lua, such as possible planet and star
+-- types and their probabilities.
+--
+-- maybe rename this file to just "data.lua"?
+--
+-- Chz means [c]ircumstellar [h]abitable [z]one, the formal scientific name
+-- for the "goldilocks zone".
+
 local data = {
     planets = {
+        -- TODO: If planet being generated is in the circumstellar habitable
+        -- zone, increase the odds in favor of terran and ocean.
         possibleTypes = {
             { 46, { name = "barren" } },
             { 13, { name = "frozen" } },
@@ -9,9 +21,20 @@ local data = {
             { 4, { name = "terran" } },
             { 3, { name = "desert" } },
             { 2, { name = "venusian" } }
+        },
+        possibleTypesInsideChz = {
+            { 28, { name = "terran" } },
+            { 19, { name = "ocean" } },
+            { 14, { name = "desert" } },
+            { 10, { name = "barren" } },
+            { 13, { name = "frozen" } },
+            { 13, { name = "lava" } },
+            { 12, { name = "toxic" } },
+            { 1, { name = "venusian" } }
         }
     },
     stars = {
+        -- Temperatures are in Kelvin. Not in Fahrenheit.
         possibleTypes = {
             { 70, {  name = "red",
                     minTemp = 2400,
@@ -48,6 +71,8 @@ local data = {
         "kam", "kai", "ai", "ei", "ro", "de", "ze", "ya", "ik", "vot",
         "sen"
     },
+    -- Default options. Used as a single source of truth for calls to
+    -- util.argumentOverride().
     defaults = {
         minNameShards = 2,
         maxNameShards = 5,

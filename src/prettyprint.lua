@@ -2,6 +2,8 @@ local util = require("util")
 
 local p = {}
 
+-- `hr` is a long line meant as a separator. Its name is derived from the
+-- element <hr> in HTML.
 local hr = '---------------------------------------------------------------'
 
 function p.printSystem(system)
@@ -11,7 +13,7 @@ function p.printSystem(system)
     print(hr)
 
     for i, planet in ipairs(system.planets) do
-        print(string.format("%s (%s type), population %d",
+        print(string.format("%-30s %-18s %d",
             planet.name, util.titleCase(planet.type),
             planet.population
         ))
@@ -19,15 +21,19 @@ function p.printSystem(system)
 
     print(hr)
 
-    print(string.format(
-        "seed: %s, generated %s",
-        system.metadata.randseed,
-        system.metadata.generated)
+    -- To allow reproducibility, we print the random
+    -- seed used to generate the star system.
+    print("seed: "..tostring(system.metadata.randseed)..", "
+        .."generated"..tostring(system.metadata.generated)
     )
-    print(string.format(
-        "population total: %d",
-        system.stats.totalPopulation)
-    )
+
+    print("chz: "..tostring(system.chz.begin)
+        .." - "..tostring(system.chz.finish))
+
+    -- print(string.format(
+    --     "population total: %d",
+    --     system.stats.totalPopulation)
+    -- )
 end
 
 return p

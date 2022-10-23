@@ -1,5 +1,7 @@
 local p = {}
 
+-- util.state is a table used to store global variables, shared across
+-- the entirety of the program.
 p.state = {}
 
 function p.isEmpty(i)
@@ -33,6 +35,10 @@ function p.weightedRandomList(pool)
             return v[2]
         end
     end
+end
+
+function p.randomFloat(a, b)
+    return a + math.random() * (b-a)
 end
 
 -- Override an argument. Checks a given name against the arguments list. If

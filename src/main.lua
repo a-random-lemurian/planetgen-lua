@@ -19,7 +19,9 @@ local function main()
                       "Set the maximum number of name shards. Default is 5."
                       .."This program generates planet and star system names "
                       .."by stringing together a random arrangement of 'name "
-                      .."fragments', like 'ca', 'mel', 'ral', and 'dan'."),
+                      .."fragments', like 'ca', 'mel', 'ral', and 'dan'."
+                      .."\nWarning: setting this value too high may break the "
+                      .."pretty print format. "),
         parser:option("--min-name-shards --minnsh",
                       "Set the minimum number of name shards. Default is 2."),
         parser:option("--minp","Minimum planets"),
