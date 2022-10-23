@@ -61,3 +61,6 @@ local function main()
 end
 
 main()
+
+-- TODO: make planetgen a library, and try to seperate
+-- main.lua and the other files
