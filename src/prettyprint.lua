@@ -30,10 +30,10 @@ function p.printSystem(system)
     print("chz: "..tostring(system.chz.begin)
         .." - "..tostring(system.chz.finish))
 
-    -- print(string.format(
-    --     "population total: %d",
-    --     system.stats.totalPopulation)
-    -- )
+    print(string.format(
+        "population total: %d",
+        system.stats.totalPopulation)
+    )
 end
 
 return p
