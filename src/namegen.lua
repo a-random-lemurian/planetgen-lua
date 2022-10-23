@@ -41,6 +41,11 @@ p.katakana = {
     }
 }
 
+p.greekAlphabetLetters = {
+    "Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Eta",
+    "Theta", "Kappa", "Lambda", "Mu", "Rho", "Sigma", "Tau"
+}
+
 p.nameProviders = {
 }
 
@@ -68,6 +73,18 @@ function p.nameProviders.generic()
     for i=1,shardsCount do
         name = name .. util.randomItemFromList(possibleShards)
     end
+
+    return name
+end
+
+function p.nameProviders.greekLetterPrefixed()
+    local name = ""
+    name = name..util.randomItemFromList(p.greekAlphabetLetters).." "
+
+    local func;
+    func = p.getName()
+    
+    name = name..util.titleCase(func())
 
     return name
 end
