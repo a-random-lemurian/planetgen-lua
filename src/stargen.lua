@@ -82,8 +82,11 @@ function p.genStarSystem()
 
     system.chz = p.calculateChz(system.star)
 
-    local planetCount = math.random(2,9)
     local distance = math.random(700000, 1340000)
+
+    local minPlanetCount = util.overrideArgument("minp", data.defaults.minPlanets)
+    local maxPlanetCount = util.overrideArgument("maxp", data.defaults.maxPlanets)
+    local planetCount = math.random(minPlanetCount, maxPlanetCount)
 
     for i=1,planetCount do
         system.planets[i] = p.genPlanet(system, distance)
@@ -95,6 +98,8 @@ function p.genStarSystem()
     
         distance = distance + math.random(7700000, 9650000)
     end
+
+    system.stats.totalPopulation = stats.totalPopulation(system.planets)
 
     return system
 end

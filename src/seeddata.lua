@@ -62,7 +62,9 @@ local data = {
     },
     defaults = {
         minNameShards = 2,
-        maxNameShards = 5
+        maxNameShards = 5,
+        minPlanets = 2,
+        maxPlanets = 9
     }
 }
 

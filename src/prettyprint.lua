@@ -7,7 +7,7 @@ local hr = '---------------------------------------------------------------'
 function p.printSystem(system)
     print(string.format("%s system", system.name))
     print(hr)
-    print(string.format("%s star", util.titleCase(system.star.type)))
+    print(string.format("%s star (%dK)", util.titleCase(system.star.type), system.star.temperature))
     print(hr)
 
     for i, planet in ipairs(system.planets) do
