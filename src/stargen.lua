@@ -77,7 +77,7 @@ function p.genStarSystem()
             generated = os.date("%Y-%m-%d %H:%M:%S",os.time()),
             randseed = util.state.seed
         },
-        name = util.titleCase(namegen.getName()),
+        name = util.titleCase(namegen.getName()()),
         star = p.genStar(),
         planets = {},
         stats = {}

@@ -73,7 +73,7 @@ function p.nameProviders.generic()
 end
 
 function p.getName()
-    return util.randomItemFromHashTable(p.nameProviders)()
+    return util.randomItemFromHashTable(p.nameProviders)
 end
 
 return p
