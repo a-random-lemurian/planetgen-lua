@@ -40,6 +40,9 @@ end
 
 -- Some arguments must be a number. This checks if the argument
 -- type is indeed, a number.
+--
+-- FIXME: Allow numbers with decimals (e.g. "7000.0") which is
+-- falsely detected as a string
 function p.ensureNumber(args, item)
     if util.isEmpty(args[item]) then
         return true
