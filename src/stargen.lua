@@ -48,7 +48,7 @@ function p.genPlanet(system, dist)
 end
 
 function p.isHabitable(chz, distance)
-    return distance >= chz.start and distance <= chz.finish
+    return distance >= chz.begin and distance <= chz.finish
 end
 
 function p.getPlanetTypes(chz, distance)
