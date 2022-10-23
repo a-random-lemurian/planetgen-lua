@@ -68,6 +68,25 @@ function p.calculateChz(star)
     return chz
 end
 
+function p.genPlanets(system, planetCount)
+    local distance = math.random(700000, 1340000)
+    local planets = {}
+
+    for i=1,planetCount do
+        planets[i] = p.genPlanet(system, distance)
+        
+        local i_str = tostring(i)
+        
+        planets[i].name = system.name .. " " .. i_str
+        planets[i].distance = distance
+        planets[i].habitable = p.isHabitable(system.chz, distance)
+        
+        distance = distance + math.random(7700000, 9650000)
+    end
+
+    return planets
+end
+
 function p.genStarSystem()
     local system = {
         metadata = {
@@ -82,22 +101,11 @@ function p.genStarSystem()
 
     system.chz = p.calculateChz(system.star)
 
-    local distance = math.random(700000, 1340000)
-
     local minPlanetCount = util.overrideArgument("minp", data.defaults.minPlanets)
     local maxPlanetCount = util.overrideArgument("maxp", data.defaults.maxPlanets)
     local planetCount = math.random(minPlanetCount, maxPlanetCount)
 
-    for i=1,planetCount do
-        system.planets[i] = p.genPlanet(system, distance)
-
-        local i_str = tostring(i)
-        system.planets[i].name = system.name .. " " .. i_str
-        system.planets[i].distance = distance
-        system.planets[i].habitable = p.isHabitable(system.chz, distance)
-    
-        distance = distance + math.random(7700000, 9650000)
-    end
+    system.planets = p.genPlanets(system, planetCount)
 
     system.stats.totalPopulation = stats.totalPopulation(system.planets)
 
