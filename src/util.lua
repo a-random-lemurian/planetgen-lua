@@ -51,4 +51,8 @@ function p.overrideArgument(argument, default)
     end
 end
 
+function p.between(i, min, max)
+    return i >= min and i <= max
+end
+
 return p;
