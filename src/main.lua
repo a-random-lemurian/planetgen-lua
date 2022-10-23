@@ -3,6 +3,7 @@ local stargen = require("stargen")
 local util = require("util")
 local json = require("json")
 local prettyprint = require("prettyprint")
+local validate = require("validate")
 
 local function main()
     local parser = argparse("stargen")
@@ -31,6 +32,7 @@ local function main()
     )
 
     local args = parser:parse()
+    validate.validateArguments(args)
 
     util.state.args = args
 
