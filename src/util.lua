@@ -35,6 +35,10 @@ function p.weightedRandomList(pool)
     end
 end
 
+function p.randomFloat(a, b)
+    return math.random() + math.random(a, b)
+end
+
 -- Override an argument. Checks a given name against the arguments list. If
 -- the target argument is not found, the default value is returned instead.
 function p.overrideArgument(argument, default)
