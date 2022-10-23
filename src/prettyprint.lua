@@ -23,17 +23,12 @@ function p.printSystem(system)
 
     -- To allow reproducibility, we print the random
     -- seed used to generate the star system.
-    print(string.format(
-        "seed: %s, generated %s",
-        system.metadata.randseed,
-        system.metadata.generated)
+    print("seed: "..tostring(system.metadata.randseed)..", "
+        .."generated"..tostring(system.metadata.generated)
     )
 
-    print(string.format(
-        "chz: %d - %d",
-        system.chz.begin,
-        system.chz.finish)
-    )
+    print("chz: "..tostring(system.chz.begin)
+        .." - "..tostring(system.chz.finish)))
 
     -- print(string.format(
     --     "population total: %d",
