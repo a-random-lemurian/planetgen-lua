@@ -48,6 +48,7 @@ function p.genPlanet(system, dist)
 end
 
 function p.isHabitable(chz, distance)
+    -- TODO: add util.between() to replace this
     return distance >= chz.begin and distance <= chz.finish
 end
 
