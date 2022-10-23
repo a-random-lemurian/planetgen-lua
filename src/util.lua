@@ -41,6 +41,20 @@ function p.randomItemFromList(list)
     return list[math.random(#list)]
 end
 
+function p.randomItemFromHashTable(hashtable)
+    return hashtable[math.random(p.countItemsInHashTable(hashtable))]
+end
+
+function p.countItemsInHashTable(hashtable)
+    local i = 0
+
+    for k,v in pairs(hashtable) do
+        i = i + 1
+    end
+
+    return i
+end
+
 function p.randomFloat(a, b)
     return a + math.random() * (b-a)
 end
